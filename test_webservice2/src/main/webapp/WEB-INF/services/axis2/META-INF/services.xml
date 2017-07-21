@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serviceGroup>
+	<!--
+	<service name="StudentService" targetNamespace="http://leopard.studentService">
+		<description>
+			my webService plant
+		</description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+				class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">leopard.Webservices.Srv_student</parameter>
+
+	</service>
+  -->
+
+	<service name="sayHelloService" targetNamespace="http://axis2.soap.com">
+		<description>
+			sayHelloService:Spring POJO Axis2 Service Sample
+		</description>
+		<messageReceivers>
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-only"
+				class="org.apache.axis2.rpc.receivers.RPCInOnlyMessageReceiver" />
+			<messageReceiver mep="http://www.w3.org/2004/08/wsdl/in-out"
+				class="org.apache.axis2.rpc.receivers.RPCMessageReceiver" />
+		</messageReceivers>
+		<parameter name="ServiceClass">com.soap.axis2.ServiceServerImpl</parameter>
+	</service>
+</serviceGroup> 

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" 
+    xmlns="http://java.sun.com/xml/ns/javaee" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+    http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <display-name>test_webservice2</display-name>
+ 
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>classpath:applicationContext.xml</param-value>
+  </context-param>
+ 
+  <servlet>
+    <servlet-name>spring</servlet-name>
+    <servlet-class>
+        org.springframework.web.servlet.DispatcherServlet
+    </servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/spring-servlet.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>spring</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <!-- jersey sun start -->
+    <servlet>
+    <servlet-name>JAX-RS REST Servlet</servlet-name>
+    <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+    <init-param>
+      <param-name>com.sun.jersey.config.property.packages</param-name>
+      <param-value>jersey.sun.server</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JAX-RS REST Servlet</servlet-name>
+    <url-pattern>/jaxrs/*</url-pattern>
+  </servlet-mapping>
+  <!-- jersey sun end -->
+  <!-- resteasy3  begin-->
+ <servlet>
+		<servlet-name>resteasy-servlet</servlet-name>
+		<servlet-class>
+			org.jboss.resteasy.plugins.server.servlet.HttpServletDispatcher
+		</servlet-class>
+		<init-param>
+			<param-name>javax.ws.rs.Application</param-name>
+			<param-value>resteasy3.server.MyRESTApplication</param-value>
+			<!--
+			<param-value>com.javacodegeeks.enterprise.rest.resteasy.MyRESTApplication</param-value>
+		     -->
+		</init-param>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>resteasy-servlet</servlet-name>
+		<url-pattern>/rest/*</url-pattern>
+	</servlet-mapping>
+	<!-- this should be the same URL pattern as the servlet-mapping property -->
+	<context-param>
+		<param-name>resteasy.servlet.mapping.prefix</param-name>
+		<param-value>/rest</param-value>
+	</context-param>
+	 <!-- resteasy3  end-->
+	 <!-- aix2 start -->
+    <servlet>
+  	   <display-name>Axis2Servlet</display-name>
+ 	   <servlet-name>Axis2Servlet</servlet-name>
+ 	   <servlet-class>org.apache.axis2.transport.http.AxisServlet</servlet-class>
+    </servlet> 
+    <servlet-mapping>
+ 	   <servlet-name>Axis2Servlet</servlet-name>
+ 	   <url-pattern>/services/*</url-pattern>
+    </servlet-mapping>
+     <!-- aix2 end -->
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
