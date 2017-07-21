@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:ws="http://jax-ws.dev.java.net/spring/core"
+  	xmlns:wss="http://jax-ws.dev.java.net/spring/servlet"
+  	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+						http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+						http://www.springframework.org/schema/context
+       					http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        				http://jax-ws.dev.java.net/spring/core
+    					http://jax-ws.dev.java.net/spring/core.xsd
+    					http://jax-ws.dev.java.net/spring/servlet
+    					http://jax-ws.dev.java.net/spring/servlet.xsd
+        				http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+    <!-- cxf start -->
+    <import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	
+	<!-- 使用annotation 自动注册bean，并保证@Required，@Autowired的属性注入 -->
+	<context:component-scan base-package="cxf.server"></context:component-scan>
+	
+	<jaxws:endpoint address="/HelloWebService"
+		implementor="cxf.server.HelloWebServiceImpl"/>
+		
+ 	<jaxws:client id="helloClient"
+        serviceClass="cxf.server.HelloWebService"
+        address="http://localhost:8280/test_webservice/services/HelloWebService" />
+    <!-- cxf end -->
+   <!-- jaxws start --> 
+   <context:component-scan base-package="jaxws.org.coderecord.blog.server">
+    </context:component-scan> 
+    <wss:binding url="/service/hello">
+        <wss:service>
+            <ws:service bean="#helloWorldService" />
+        </wss:service>
+     </wss:binding> 
+    <context:component-scan base-package="jaxws.server">
+    </context:component-scan> 
+    <wss:binding url="/service/myService">
+        <wss:service>
+            <ws:service bean="#myService" />
+        </wss:service>
+     </wss:binding>
+  <!-- jaxws end -->    
+
+</beans>
