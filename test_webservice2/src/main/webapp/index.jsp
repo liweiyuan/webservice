@@ -24,4 +24,9 @@
 <p>
     <a href="<%=contextPath%>/aix2stub.do">stub方式</a>
 </p>
+<p>----spring-ws ----</p>
+<p>
+    <a href="<%=contextPath%>/spring-ws.do">HttpURLConnectionclient</a>
+</p>
+</body>
 </html>

@@ -18,6 +18,9 @@
 	<context:component-scan base-package="jersey.sun.client"></context:component-scan>
 	<context:component-scan base-package="resteasy3.client"></context:component-scan>
 	<context:component-scan base-package="aix2.client"></context:component-scan>
+
+	<!--spring-ws-->
+	<context:component-scan base-package="com.test"/>
  	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
  	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
  		<property name="prefix" value="/jsp/" />

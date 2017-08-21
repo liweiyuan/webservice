@@ -3,6 +3,8 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:sws="http://www.springframework.org/schema/web-services"
+       xmlns:oxm="http://www.springframework.org/schema/oxm"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 						http://www.springframework.org/schema/beans/spring-beans-4.0.xsd 
 						http://www.springframework.org/schema/context
@@ -10,15 +12,41 @@
 
 
         				http://www.springframework.org/schema/mvc 
-						http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd">
-    <context:annotation-config />
-    <mvc:annotation-driven />
-	<context:component-scan base-package="resteasy3.client"></context:component-scan>
-	<context:component-scan base-package="jersey.glassfish.client"></context:component-scan>
-	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
- 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
- 		<property name="prefix" value="/jsp/" />
- 		<property name="suffix" value=".jsp" />
- 	</bean>
- 	
+						http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services.xsd http://www.springframework.org/schema/oxm http://www.springframework.org/schema/oxm/spring-oxm.xsd">
+    <context:annotation-config/>
+    <mvc:annotation-driven/>
+    <context:component-scan base-package="resteasy3.client"></context:component-scan>
+    <context:component-scan base-package="jersey.glassfish.client"></context:component-scan>
+
+
+    <context:component-scan base-package="com"/>
+    <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+
+    <sws:dynamic-wsdl id="user" portTypeName="UserType" locationUri="/service/user">
+        <sws:xsd location="/WEB-INF/user.xsd"/>
+    </sws:dynamic-wsdl>
+    <oxm:jaxb2-marshaller id="jaxbMarshallerBean">
+        <oxm:class-to-be-bound name="com.zchen.User"/>
+    </oxm:jaxb2-marshaller>
+
+    <!--     <sws:dynamic-wsdl id="demo" portTypeName="UserResource" locationUri="/demo">
+            <sws:xsd location="/WEB-INF/demo.xsd" />
+        </sws:dynamic-wsdl> -->
+
+
+    <sws:dynamic-wsdl id="say" portTypeName="Echo" locationUri="/say">
+        <sws:xsd location="/WEB-INF/say.xsd"/>
+    </sws:dynamic-wsdl>
+
+    <bean id="messageFactory" class="org.springframework.ws.soap.saaj.SaajSoapMessageFactory"/>
+    <bean id="webServiceTemplate" class="org.springframework.ws.client.core.WebServiceTemplate">
+        <constructor-arg ref="messageFactory"/>
+        <property name="defaultUri" value="http://localhost:8280/spring-ws/service/user"/>
+    </bean>
+
 </beans>
