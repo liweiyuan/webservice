@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../cxfdemo/cxfdemo.iml" filepath="$PROJECT_DIR$/../cxfdemo/cxfdemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../nosql/xmech/nosql_09.iml" filepath="$PROJECT_DIR$/../../nosql/xmech/nosql_09.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../jersy(sun)/rest-sun-jersey.iml" filepath="$PROJECT_DIR$/../jersy(sun)/rest-sun-jersey.iml" />
       <module fileurl="file://$PROJECT_DIR$/test_webservice.iml" filepath="$PROJECT_DIR$/test_webservice.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../test_webservice3/test_webservice3.iml" filepath="$PROJECT_DIR$/../test_webservice3/test_webservice3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../test_webservice2/ws2_08.iml" filepath="$PROJECT_DIR$/../test_webservice2/ws2_08.iml" />
     </modules>
   </component>
 </project>

@@ -16,8 +16,8 @@
 <p>----resteasy3 ----</p>
 <p> <a href="<%=contextPath%>/resteasy3client2.do">ResteasyClient client</a></p>
 
-<p>----resteasy3 ----</p>
-<p> <a href="<%=contextPath%>/Client.do">ResteasyClient client</a></p>
+<p>----Spring-ws ----</p>
+<p> <a href="<%=contextPath%>/Client.do">spring-ws</a></p>
 
 </body>
 </html>

@@ -49,6 +49,8 @@ public class UserInfoClient {
 	 * @return
 	 */
 	public static String getClientResponse(WebResource resource) {
+
+		System.out.println(resource);
 		return resource.accept(MediaType.TEXT_XML).get(ClientResponse.class)
 				.toString();
 	}
@@ -60,6 +62,7 @@ public class UserInfoClient {
 	 * @return
 	 */
 	public static String getResponse(WebResource resource) {
+		System.out.println(resource);
 		return resource.accept(MediaType.TEXT_XML).get(String.class);
 	}
 }

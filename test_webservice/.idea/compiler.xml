@@ -6,11 +6,21 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="cxfdemo" />
+        <module name="nosql_09" />
+        <module name="rest-sun-jersey" />
         <module name="test_webservice" />
+        <module name="test_webservice3" />
+        <module name="ws2_08" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.7">
+      <module name="cxfdemo" target="1.8" />
+      <module name="nosql_09" target="1.5" />
+      <module name="rest-sun-jersey" target="1.7" />
       <module name="test_webservice" target="1.7" />
+      <module name="test_webservice3" target="1.5" />
+      <module name="ws2_08" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

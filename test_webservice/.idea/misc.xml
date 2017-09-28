@@ -5,16 +5,27 @@
     <groovy codeStyle="LEGACY" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/../../nosql/xmech" />
+    <file type="web" url="file://$PROJECT_DIR$/../cxfdemo" />
+    <file type="web" url="file://$PROJECT_DIR$/../jersy(sun)" />
     <file type="web" url="file://$PROJECT_DIR$" />
+    <file type="web" url="file://$PROJECT_DIR$/../test_webservice2" />
+    <file type="web" url="file://$PROJECT_DIR$/../test_webservice3" />
+    <file type="web" url="file://$PROJECT_DIR$/../../数据库/database_test" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/../test_webservice2/pom.xml" />
+        <option value="$PROJECT_DIR$/../test_webservice3/pom.xml" />
+        <option value="$PROJECT_DIR$/../../nosql/xmech/pom.xml" />
+        <option value="$PROJECT_DIR$/../cxfdemo/pom.xml" />
+        <option value="$PROJECT_DIR$/../jersy(sun)/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="false" project-jdk-name="1.7" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/classes" />
   </component>
 </project>

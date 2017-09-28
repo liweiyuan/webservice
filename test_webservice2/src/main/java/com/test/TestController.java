@@ -12,25 +12,26 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class TestController {
 
-	@RequestMapping("hello.do")
-	public void hello(){
+    @RequestMapping("hello.do")
+    public void hello() {
 
-	}
+    }
 
-	@RequestMapping("spring-ws.do")
-	@ResponseBody
-	public String springwsclient(HttpServletRequest request){
-		try {
-			Thread.sleep(200);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		String url=request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
-		Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
-		marshaller.setClassesToBeBound(User.class);
-		WebServiceTemplate template = new WebServiceTemplate(marshaller);
-		User user = new User(1, "WebServiceTemplate");
-		User returnUser = (User)template.marshalSendAndReceive(url+"/service/user", user);
-		return "springws-client : "+user.getUser();
-	}
+    @RequestMapping("spring-ws.do")
+    @ResponseBody
+    public String springwsclient(HttpServletRequest request) {
+        try {
+            Thread.sleep(200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println();
+        String url = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+        Jaxb2Marshaller marshaller = new Jaxb2Marshaller();
+        marshaller.setClassesToBeBound(User.class);
+        WebServiceTemplate template = new WebServiceTemplate(marshaller);
+        User user = new User(1, "WebServiceTemplate");
+        User returnUser = (User) template.marshalSendAndReceive(url + "/service/user", user);
+        return "springws-client : " + user.getUser();
+    }
 }
